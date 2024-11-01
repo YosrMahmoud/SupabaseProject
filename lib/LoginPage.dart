@@ -1,3 +1,4 @@
+import 'package:ecommerce/UserPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -80,7 +81,7 @@ class LoginPage extends StatelessWidget {
         );
 
         if (response.user != null) {
-          Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+          Navigator.pushReplacementNamed(context, UserPage.routeName);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("login successful")),
           );

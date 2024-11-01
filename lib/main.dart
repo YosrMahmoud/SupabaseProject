@@ -2,8 +2,8 @@ import 'package:ecommerce/HomeScreen.dart';
 import 'package:ecommerce/LoginPage.dart';
 import 'package:ecommerce/RegisterPage.dart';
 import 'package:flutter/material.dart';
-
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'UserPage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +26,8 @@ initialRoute: LoginPage.routeName,
   routes: {
   LoginPage.routeName : (context) => LoginPage(),
     RegisterPage.routeName : (context) => RegisterPage(),
-    HomeScreen.routeName : (context) => HomeScreen()
+    HomeScreen.routeName : (context) => HomeScreen(),
+    UserPage.routeName : (context) => UserPage(),
   },
 );
 }

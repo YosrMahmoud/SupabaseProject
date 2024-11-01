@@ -1,5 +1,6 @@
 import 'package:ecommerce/HomeScreen.dart';
 import 'package:ecommerce/LoginPage.dart';
+import 'package:ecommerce/UserPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -92,7 +93,11 @@ class RegisterPage extends StatelessWidget {
         );
 
         if (response.user != null) {
-          Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+          await supabase.from('profiles').insert({
+            'id': response.user!.id,
+            'email': emailController.text.trim()
+          });
+          Navigator.pushReplacementNamed(context, UserPage.routeName);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Registration successful")),
           );
